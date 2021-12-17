@@ -42,7 +42,8 @@ class ContactController extends AbstractController
             'controller_name' => 'zobmalin',
             'name' => $name,
             'contacts' => $this->contactRepository->findAll(),
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'test' => $name
         ]);
     }
 
