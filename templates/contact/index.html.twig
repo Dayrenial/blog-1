@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ContactController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Hello {{ controller_name }}! ✅</h1>
+
+    {% if city is defined %}
+        <h1>{{ city|capitalize }}</h1>
+    {% endif %}
+
+    {% if name is defined %}
+        <h2>{{ name }}</h2>
+    {% endif %}
+
+    {% if contacts is defined %}
+        <ul>
+        {% for contact in contacts %}
+            <li><a href="{{ path('contactId', {id: contact.id}) }}">Demande de contact pour {{ contact.nom }}</a></li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if contact is defined %}
+        <ul>
+            <li>{{ contact.nom }}</li>
+            <li>{{ contact.prenom }}</li>
+            <li>{{ contact.email }}</li>
+            <li>{{ contact.sujet }}</li>
+            <li>{{ contact.message }}</li>
+            <li>{{ contact.newsletter }}</li>
+        </ul>
+    {% endif %}
+
+    {% if form is defined %}
+        {{ form(form) }}
+    {% endif %}
+
+</div>
+{% endblock %}
