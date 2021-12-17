@@ -43,7 +43,7 @@ class ContactController extends AbstractController
             'name' => $name,
             'contacts' => $this->contactRepository->findAll(),
             'form' => $form->createView(),
-            'test' => $name
+
         ]);
     }
 
